@@ -3,10 +3,10 @@ package APIvendas.API.de.vendas.domain;
 import lombok.*;
 import org.hibernate.Hibernate;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Objects;
 
 @Entity
@@ -20,6 +20,14 @@ public class Pedido {
     private Long id;
     private LocalDate dataPedido;
     private BigDecimal total;
+
+    //LAZY = a consulta não traz os pedidos como padrão
+    //EAGER = a consulta traz os pedidos junto com a consulta do cliente
+    @OneToMany(mappedBy = "pedido", fetch = FetchType.LAZY)
+    List<ItemPedido> itemPedidoList;
+    @ManyToOne
+    @JoinColumn(name = "cliente_id")
+    private Cliente cliente;
 
     @Override
     public boolean equals(Object o) {
