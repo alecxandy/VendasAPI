@@ -12,6 +12,7 @@ import java.util.List;
 @Repository
 public interface ClienteRepository extends JpaRepository<Cliente, Long> {
 
+/*
 
     //conveção de query methods onde busca cliente por nome
     List<Cliente> findByNameLike(String nome);
@@ -37,5 +38,6 @@ public interface ClienteRepository extends JpaRepository<Cliente, Long> {
     @Query("select c from cliente c left join fetch c.pedido where c.id = :id ")
     Cliente findCLienteFetchePedidos(@Param("id") Long id);
 
+*/
 
 }

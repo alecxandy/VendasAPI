@@ -18,8 +18,10 @@ public class Cliente {
     @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
     private String nome;
+    private String cpf;
 
     @OneToMany(mappedBy = "cliente")
+    @ToString.Exclude
     private List<Pedido> pedidoList;
 
     @Override
