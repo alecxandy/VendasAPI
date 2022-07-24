@@ -1,6 +1,6 @@
 package APIvendas.API.de.vendas.repository;
 
-import APIvendas.API.de.vendas.domain.Produto;
+import APIvendas.API.de.vendas.entity.Produto;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

@@ -1,10 +1,9 @@
-package APIvendas.API.de.vendas.domain;
+package APIvendas.API.de.vendas.entity;
 
 import lombok.*;
 import org.hibernate.Hibernate;
 
 import javax.persistence.*;
-import java.math.BigDecimal;
 import java.util.List;
 import java.util.Objects;
 
@@ -13,21 +12,24 @@ import java.util.Objects;
 @Setter
 @ToString
 @RequiredArgsConstructor
-public class Produto {
+public class Cliente {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @GeneratedValue(strategy =  GenerationType.IDENTITY)
     private Long id;
-    private String descricao;
-    private BigDecimal preco;
+    private String nome;
+    private String cpf;
 
+    @OneToMany(mappedBy = "cliente")
+    @ToString.Exclude
+    private List<Pedido> pedidoList;
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
         if (o == null || Hibernate.getClass(this) != Hibernate.getClass(o)) return false;
-        Produto produto = (Produto) o;
-        return id != null && Objects.equals(id, produto.id);
+        Cliente cliente = (Cliente) o;
+        return id != null && Objects.equals(id, cliente.id);
     }
 
     @Override

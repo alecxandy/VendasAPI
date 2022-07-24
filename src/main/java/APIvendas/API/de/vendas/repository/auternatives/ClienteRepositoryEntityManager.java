@@ -1,6 +1,6 @@
 package APIvendas.API.de.vendas.repository.auternatives;
 
-import APIvendas.API.de.vendas.domain.Cliente;
+import APIvendas.API.de.vendas.entity.Cliente;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;

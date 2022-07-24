@@ -1,6 +1,6 @@
 package APIvendas.API.de.vendas.controller;
 
-import APIvendas.API.de.vendas.domain.Cliente;
+import APIvendas.API.de.vendas.entity.Cliente;
 import APIvendas.API.de.vendas.repository.ClienteRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Example;
@@ -40,10 +40,10 @@ public class ClienteController {
 
     @DeleteMapping("/delete")
     @ResponseStatus(HttpStatus.NO_CONTENT)
-    public void delete(@PathVariable Long id) {
-        clienteRepository.findById(id)
-                .map(cliente -> clienteRepository.delete(cliente))
-                .orElseThrow(() -> new ResponseStatusException(HttpStatus.NOT_FOUND, "Delete sucess"));
+    public ResponseEntity<Cliente> delete(@PathVariable Long id) {
+        Optional<Cliente> optionalCliente = clienteRepository.findById(id);
+        optionalCliente.ifPresent(clienteRepository::delete);
+        return ResponseEntity.noContent().build();
     }
 
     @PutMapping("{id}")

@@ -1,4 +1,4 @@
-package APIvendas.API.de.vendas.domain;
+package APIvendas.API.de.vendas.entity;
 
 import lombok.*;
 import org.hibernate.Hibernate;

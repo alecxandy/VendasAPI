@@ -1,7 +1,7 @@
 package APIvendas.API.de.vendas.repository;
 
-import APIvendas.API.de.vendas.domain.Cliente;
-import APIvendas.API.de.vendas.domain.Pedido;
+import APIvendas.API.de.vendas.entity.Cliente;
+import APIvendas.API.de.vendas.entity.Pedido;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
